@@ -1,0 +1,5 @@
+/.idea/
+/target/
+/ewallet-rabbitmq.iml
+
+.DS_Store
