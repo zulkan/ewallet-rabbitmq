@@ -1,0 +1,32 @@
+name: GitHub Actions
+run-name: ${{ github.actor }} is triggering github action
+on: [push, pull_request]
+
+jobs:
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        services:
+          rabbitmq:
+            image: rabbitmq:3.13-management
+            container_name: rabbitmq
+            ports:
+              - "5672:5672"
+              - "15672:15672"
+            network_mode: host
+          postgres:
+            image: postgres:13
+            container_name: postgres
+            ports:
+              - "5432:5432"
+            network_mode: host
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Set up JDK
+              uses: actions/setup-java@v3
+              with:
+                distribution: 'temurin'
+                java-version: '17'
+            - name: Build with Maven
+              run: mvn clean install
