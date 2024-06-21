@@ -2,7 +2,6 @@ package com.zulkan.ewallet.e2e;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zulkan.ewallet.config.Properties;
 import com.zulkan.ewallet.dto.request.BalanceTopupRequest;
 import com.zulkan.ewallet.dto.request.TransferRequest;
 import com.zulkan.ewallet.model.User;
@@ -11,12 +10,10 @@ import com.zulkan.ewallet.repository.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.amqp.core.Queue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
-import org.springframework.context.annotation.Bean;
 
 import java.util.Collections;
 
@@ -35,24 +32,11 @@ public class ApplicationTest {
     private UserRepository userRepository;
 
     @Autowired
-    private Properties properties;
-
-    @Autowired
     private TransactionRepository transactionRepository;
 
     ObjectMapper objectMapper = new ObjectMapper();
 
     private final User firstUser = new User();
-
-    @Bean
-    Queue balanceTopupQueue() {
-        return new Queue(properties.getBalanceTopupTopic(), false);
-    }
-
-    @Bean
-    Queue transferQueue() {
-        return new Queue(properties.getTransferTopic(), false);
-    }
 
     @BeforeEach
     void init() {
