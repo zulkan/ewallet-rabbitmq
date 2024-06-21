@@ -9,14 +9,12 @@ jobs:
         services:
           rabbitmq:
             image: rabbitmq:3.13-management
-            container_name: rabbitmq
             ports:
               - "5672:5672"
               - "15672:15672"
             network_mode: host
           postgres:
             image: postgres:13
-            container_name: postgres
             ports:
               - "5432:5432"
             network_mode: host
