@@ -27,3 +27,8 @@ run the jar file using `java -jar target/*.jar`, the app will run in port 9090 b
 ### Application usage
 
 The list of endpoint can be seen under `/swagger-ui/index.html`
+
+Please create 2 topics for topup and transfer, and configure it in application.properties, by editing the properties file manually or passing the parameter (`-Dconfig.transferTopic=topicName -Dconfig.balanceTopupTopic=topicName`)
+
+it's the same if you want to run end to end test under e2e folder.
+
