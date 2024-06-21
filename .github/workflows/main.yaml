@@ -16,6 +16,10 @@ jobs:
             image: postgres:13
             ports:
               - "5432:5432"
+            env:
+              POSTGRES_USER: "postgres"
+              POSTGRES_PASSWORD: "pg123"
+              POSTGRES_DBNAME: "ewallet_test"
         steps:
             - name: Checkout
               uses: actions/checkout@v3
