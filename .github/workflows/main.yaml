@@ -12,12 +12,10 @@ jobs:
             ports:
               - "5672:5672"
               - "15672:15672"
-            network_mode: host
           postgres:
             image: postgres:13
             ports:
               - "5432:5432"
-            network_mode: host
         steps:
             - name: Checkout
               uses: actions/checkout@v3
