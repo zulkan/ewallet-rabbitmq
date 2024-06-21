@@ -4,7 +4,6 @@ import com.zulkan.ewallet.dto.request.BalanceTopupRequest;
 import com.zulkan.ewallet.dto.request.TransferRequest;
 import com.zulkan.ewallet.model.User;
 import com.zulkan.ewallet.service.TransactionInterface;
-import com.zulkan.ewallet.service.UserInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
